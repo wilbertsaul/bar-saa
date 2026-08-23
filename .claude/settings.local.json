@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(cd \"D:/Rafo/Proyectos/PHP/bar-management\" && /c/xampp/php/php artisan --version && ls app/Models/ && ls app/Observers/ && ls database/migrations/ | wc -l)"
-    ]
-  }
-}
