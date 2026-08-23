@@ -25,12 +25,12 @@ class ProductoSeeder extends Seeder
             ['nombre' => 'Whisky Johnnie Walker Gold Label Reserve 750ML', 'categoria' => 'whisky', 'stock_actual' => 10, 'precio_venta' => 350.00, 'precio_tarjeta' => 370.00],
 
             // Cerveza
-            ['nombre' => 'Cusqueña Dorada 310ML', 'categoria' => 'cerveza', 'stock_actual' => 60, 'precio_venta' => 9.00, 'precio_tarjeta' => 10.00],
+            ['nombre' => 'Cusqueña Dorada 310ML', 'categoria' => 'cerveza', 'stock_actual' => 360, 'precio_venta' => 9.00, 'precio_tarjeta' => 10.00],
 
             // Sin alcohol
-            ['nombre' => 'San Mateo Agua Sin Gas 600ML', 'categoria' => 'sin_alcohol', 'stock_actual' => 15, 'precio_venta' => 3.00, 'precio_tarjeta' => 4.00],
-            ['nombre' => 'San Mateo Agua Con Gas 600ML', 'categoria' => 'sin_alcohol', 'stock_actual' => 15, 'precio_venta' => 3.00, 'precio_tarjeta' => 4.00],
-            ['nombre' => 'Coca Cola 600ML', 'categoria' => 'sin_alcohol', 'stock_actual' => 15, 'precio_venta' => 5.00, 'precio_tarjeta' => 6.00],
+            ['nombre' => 'San Mateo Agua Sin Gas 600ML', 'categoria' => 'sin_alcohol', 'stock_actual' => 225, 'precio_venta' => 3.00, 'precio_tarjeta' => 4.00],
+            ['nombre' => 'San Mateo Agua Con Gas 600ML', 'categoria' => 'sin_alcohol', 'stock_actual' => 225, 'precio_venta' => 3.00, 'precio_tarjeta' => 4.00],
+            ['nombre' => 'Coca Cola 600ML', 'categoria' => 'sin_alcohol', 'stock_actual' => 180, 'precio_venta' => 5.00, 'precio_tarjeta' => 6.00],
             ['nombre' => 'Red Bull Energy Drink 250ML', 'categoria' => 'sin_alcohol', 'stock_actual' => 15, 'precio_venta' => 12.00, 'precio_tarjeta' => 13.00],
         ];
 
