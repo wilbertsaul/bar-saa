@@ -122,7 +122,9 @@
                 <div class="bg-surface-container-low border border-outline-variant/10 rounded-xl p-3 flex items-center justify-between gap-3">
                     <div class="min-w-0">
                         <p class="text-xs text-on-surface/60 truncate">
-                            @foreach($venta->detalles as $d){{ $d->cantidad }}× {{ $d->producto->nombre }}@if(!$loop->last), @endif@endforeach
+                            @foreach($venta->detalles as $d)
+                                {{ $d->cantidad }}× {{ $d->producto->nombre }}@if(!$loop->last), @endif
+                            @endforeach
                         </p>
                         <p class="text-[10px] text-on-surface/40 mt-0.5">{{ $venta->fecha_hora->format('H:i') }} · {{ \App\Models\Venta::TIPOS_PAGO[$venta->tipo_pago] ?? $venta->tipo_pago }} · {{ $venta->user->name }}</p>
                     </div>
