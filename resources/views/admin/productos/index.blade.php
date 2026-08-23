@@ -42,6 +42,13 @@
                 <input type="number" name="cajas" min="1" value="1" class="flex-1 bg-surface-container-high rounded-lg px-2 py-2 text-xs text-center text-on-surface">
                 <button class="bg-tertiary-container text-on-tertiary px-3 py-2 rounded-lg text-xs font-bold">+</button>
             </form>
+            @if(auth()->user()->rol === 'admin')
+            <form method="POST" action="{{ route('admin.productos.descontar', $prod) }}" onsubmit="return confirm('¿Descontar las unidades indicadas del stock de {{ $prod->nombre }}?')" class="flex-1 flex items-center gap-1">
+                @csrf
+                <input type="number" name="unidades" min="1" max="{{ $prod->stock_actual }}" value="1" class="flex-1 bg-surface-container-high rounded-lg px-2 py-2 text-xs text-center text-on-surface">
+                <button class="bg-error-container text-on-error-container px-3 py-2 rounded-lg text-xs font-bold">−</button>
+            </form>
+            @endif
             <a href="{{ route('admin.productos.edit', $prod) }}" class="bg-surface-container-high px-4 py-2 rounded-lg text-xs text-on-surface">Editar</a>
         </div>
     </div>
@@ -86,14 +93,28 @@
                     <span class="text-xs text-on-surface/40"> / mín {{ $prod->stock_minimo }}</span>
                 </td>
                 <td class="px-4 py-3 text-right">
-                    <form method="POST" action="{{ route('admin.productos.stock', $prod) }}" class="inline-flex items-center gap-1">
-                        @csrf
-                        <input type="number" name="cajas" min="1" value="1"
-                               class="w-14 bg-surface-container-high border border-outline-variant/15 rounded px-2 py-1 text-xs text-center text-on-surface">
-                        <button class="text-xs bg-tertiary-container text-on-tertiary px-2 py-1 rounded transition">
-                            + Cajas
-                        </button>
-                    </form>
+                    <div class="inline-flex items-center gap-2">
+                        <form method="POST" action="{{ route('admin.productos.stock', $prod) }}" class="inline-flex items-center gap-1">
+                            @csrf
+                            <input type="number" name="cajas" min="1" value="1"
+                                   class="w-14 bg-surface-container-high border border-outline-variant/15 rounded px-2 py-1 text-xs text-center text-on-surface">
+                            <button class="text-xs bg-tertiary-container text-on-tertiary px-2 py-1 rounded transition">
+                                + Cajas
+                            </button>
+                        </form>
+                        @if(auth()->user()->rol === 'admin')
+                        <form method="POST" action="{{ route('admin.productos.descontar', $prod) }}"
+                              onsubmit="return confirm('¿Descontar las unidades indicadas del stock de {{ $prod->nombre }}?')"
+                              class="inline-flex items-center gap-1">
+                            @csrf
+                            <input type="number" name="unidades" min="1" max="{{ $prod->stock_actual }}" value="1"
+                                   class="w-14 bg-surface-container-high border border-outline-variant/15 rounded px-2 py-1 text-xs text-center text-on-surface">
+                            <button title="Descontar stock" class="text-xs bg-error-container text-on-error-container px-2 py-1 rounded transition">
+                                −
+                            </button>
+                        </form>
+                        @endif
+                    </div>
                 </td>
                 <td class="px-4 py-3 text-right">
                     <a href="{{ route('admin.productos.edit', $prod) }}"

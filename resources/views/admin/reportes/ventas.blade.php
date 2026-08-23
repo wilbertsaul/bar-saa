@@ -32,6 +32,7 @@
                 <th class="text-left px-4 py-3">Pago</th>
                 <th class="text-right px-4 py-3">Total</th>
                 <th class="text-right px-4 py-3">Registró</th>
+                <th class="text-right px-4 py-3">Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -46,9 +47,17 @@
                 <td class="px-4 py-3 text-gray-400 text-xs">{{ \App\Models\Venta::TIPOS_PAGO[$venta->tipo_pago] ?? $venta->tipo_pago }}</td>
                 <td class="px-4 py-3 text-right font-semibold text-gray-100">S/ {{ number_format($venta->total, 2) }}</td>
                 <td class="px-4 py-3 text-right text-xs text-gray-500">{{ $venta->user->name }}</td>
+                <td class="px-4 py-3 text-right">
+                    <form method="POST" action="{{ route('pos.venta.anular', $venta) }}"
+                          onsubmit="return confirm('¿Extornar la venta #{{ $venta->id }} por S/ {{ number_format($venta->total, 2) }}? Se restaurará el stock.')">
+                        @csrf
+                        @method('PATCH')
+                        <button class="text-xs text-error hover:underline transition">Extornar</button>
+                    </form>
+                </td>
             </tr>
             @empty
-            <tr><td colspan="5" class="text-center py-8 text-gray-500">Sin ventas en el período.</td></tr>
+            <tr><td colspan="6" class="text-center py-8 text-gray-500">Sin ventas en el período.</td></tr>
             @endforelse
         </tbody>
     </table>

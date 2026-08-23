@@ -62,6 +62,10 @@ Route::middleware(['auth'])->group(function () {
         // Reportes
         Route::get('/reportes/ventas', [ReporteController::class, 'ventas'])->name('reportes.ventas');
 
+        // Descuento manual de stock (solo admin)
+        Route::post('/productos/{producto}/descontar', [ProductoController::class, 'descontarStock'])
+            ->name('productos.descontar');
+
         // Auditoría
         Route::get('/auditoria', [AuditoriaController::class, 'index'])->name('auditoria.index');
     });

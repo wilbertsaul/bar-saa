@@ -71,4 +71,17 @@ class ProductoController extends Controller
 
         return back()->with('success', "Stock actualizado: +{$request->cajas} caja(s) = " . ($request->cajas * $producto->unidades_por_caja) . " unidades.");
     }
+
+    public function descontarStock(Request $request, Producto $producto): RedirectResponse
+    {
+        $data = $request->validate(
+            ['unidades' => 'required|integer|min:1|max:' . max((int) $producto->stock_actual, 0)],
+            ['unidades.max' => 'No hay suficiente stock para descontar esa cantidad.']
+        );
+
+        $cantidad = (int) $data['unidades'];
+        $producto->descontarStock($cantidad, auth()->user(), 'Salida manual');
+
+        return back()->with('success', "Stock actualizado: −{$cantidad} unidad(es). Stock actual: {$producto->fresh()->stock_actual}.");
+    }
 }
