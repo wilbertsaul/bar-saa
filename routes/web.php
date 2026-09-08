@@ -61,6 +61,7 @@ Route::middleware(['auth'])->group(function () {
 
         // Reportes
         Route::get('/reportes/ventas', [ReporteController::class, 'ventas'])->name('reportes.ventas');
+        Route::get('/reportes/ventas/exportar', [ReporteController::class, 'exportarVentas'])->name('reportes.ventas.exportar');
 
         // Descuento manual de stock (solo admin)
         Route::post('/productos/{producto}/descontar', [ProductoController::class, 'descontarStock'])

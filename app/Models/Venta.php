@@ -11,7 +11,7 @@ class Venta extends Model
     public const TIPOS_PAGO = [
         'efectivo' => 'Efectivo',
         'yape' => 'Yape',
-        'plin' => 'Plin',
+        'plin' => 'Merma',
         'tarjeta_credito' => 'Tarjeta de Crédito',
         'tarjeta_debito' => 'Tarjeta de Débito',
     ];

@@ -18,7 +18,7 @@
     window.tiposPago = {
         'efectivo': { label: 'Efectivo', icono: 'payments', precio: 'venta', color: 'tertiary' },
         'yape': { label: 'Yape', icono: 'smartphone', precio: 'venta', color: 'primary' },
-        'plin': { label: 'Plin', icono: 'smartphone', precio: 'venta', color: 'primary' },
+        'plin': { label: 'Merma', icono: 'smartphone', precio: 'venta', color: 'primary' },
         'tarjeta_credito': { label: 'T. Crédito', icono: 'credit_card', precio: 'tarjeta', color: 'primary' },
         'tarjeta_debito': { label: 'T. Débito', icono: 'credit_card', precio: 'tarjeta', color: 'primary' }
     };

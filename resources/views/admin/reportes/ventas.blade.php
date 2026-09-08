@@ -18,7 +18,11 @@
         <button type="submit" class="bg-primary hover:opacity-90 text-on-primary text-sm px-4 py-2 rounded-lg transition">Filtrar</button>
     </div>
     <div class="flex items-end ml-auto">
-        <span class="text-sm text-gray-400">Total: <strong class="text-white">S/ {{ number_format($totalPeriodo, 2) }}</strong></span>
+        <a href="{{ route('admin.reportes.ventas.exportar', ['desde' => $desde, 'hasta' => $hasta]) }}"
+           class="bg-emerald-600 hover:opacity-90 text-white text-sm px-4 py-2 rounded-lg transition inline-flex items-center gap-1.5 shrink-0">
+            <span class="material-symbols-outlined text-base">download</span> Exportar a Excel
+        </a>
+        <span class="text-sm text-gray-400 ml-3">Total: <strong class="text-white">S/ {{ number_format($totalPeriodo, 2) }}</strong></span>
     </div>
 </form>
 
